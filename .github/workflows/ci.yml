@@ -100,6 +100,8 @@ jobs:
           fetch-depth: 2
           ref: ${{ github.event.pull_request.head.sha }}
           path: lynx
+      - name: Validate Action version manifest
+        run: python3 tools/ci/check_action_versions.py
       - name: Install Common Dependencies
         uses: ./lynx/.github/actions/common-deps
       - name: Run file type check
